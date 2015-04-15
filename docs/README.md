@@ -5,7 +5,7 @@ Welcome to the [gulp][gulp] flavor of our web app generator! If you're not famil
 If you haven't already, install [yo][yo] and this generator by running:
 
 ```sh
-$ npm install --global yo generator-gulp-webapp
+$ npm install --global yo generator-720dreams-webpage
 ```
 
 Now you can scaffold your very own web app:
@@ -13,7 +13,7 @@ Now you can scaffold your very own web app:
 ```sh
 $ mkdir my-webapp
 $ cd my-webapp
-$ yo gulp-webapp
+$ yo 720dreams-webpage
 ```
 
 To start developing, run:

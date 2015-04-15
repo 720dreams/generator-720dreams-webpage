@@ -14,7 +14,7 @@ describe('Gulp Webapp generator slug name', function () {
         return;
       }
 
-      this.webapp = helpers.createGenerator('gulp-webapp:app', [
+      this.webapp = helpers.createGenerator('720dreams-webpage:app', [
         '../../app', [
           helpers.createDummyGenerator(),
           'mocha:app'

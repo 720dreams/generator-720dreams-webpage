@@ -1,4 +1,4 @@
-# Web app generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-gulp-webapp.svg?branch=master)](http://travis-ci.org/yeoman/generator-gulp-webapp)
+# Web app generator
 
 > [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
 
@@ -30,8 +30,8 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 ## Getting Started
 
 - Install dependencies: `npm install --global yo bower`
-- Install the generator: `npm install --global generator-gulp-webapp`
-- Run `yo gulp-webapp` to scaffold your webapp
+- Install the generator: `npm install --global git+https://github.com/720dreams/generator-720dreams-webpage.git`
+- Run `yo 720dreams-webpage` to scaffold your webapp
 - Run `gulp serve` to preview and watch for changes
 - Run `bower install --save <package>` to install frontend dependencies
 - Run `gulp` to build your webapp for production

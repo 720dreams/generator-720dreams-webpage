@@ -7,7 +7,7 @@ Options:
     Modernizr: Include Modernizr
 
 Example:
-    yo gulp-webapp
+    yo 720dreams-webpage
 
     This will create:
         gulpfile.js: Configuration for the task runner.

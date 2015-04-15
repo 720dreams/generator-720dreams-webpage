@@ -1,12 +1,15 @@
 /*global -$ */
 'use strict';
-// generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
+// generated on 2015-04-06 using generator-gulp-webapp 0.3.0
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var htmlhint = require('gulp-htmlhint');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
 
-gulp.task('styles', function () {<% if (includeSass) { %>
+gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -14,9 +17,7 @@ gulp.task('styles', function () {<% if (includeSass) { %>
       precision: 10,
       includePaths: ['.'],
       onError: console.error.bind(console, 'Sass error:')
-    }))<% } else { %>
-  return gulp.src('app/styles/main.css')
-    .pipe($.sourcemaps.init())<% } %>
+    }))
     .pipe($.postcss([
       require('autoprefixer-core')({browsers: ['last 1 version']})
     ]))
@@ -48,15 +49,29 @@ gulp.task('html', ['styles'], function () {
 
 gulp.task('images', function () {
   return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
+    .pipe($.imagemin({
       progressive: true,
       interlaced: true,
       // don't remove IDs from SVGs, they are often used
       // as hooks for embedding and styling
       svgoPlugins: [{cleanupIDs: false}]
-    })))
+    }))
     .pipe(gulp.dest('dist/images'));
 });
+
+// TODO does not work. Copies no non-svg ($.cache)
+// gulp.task('images', function () {
+// return gulp.src('app/images/**/*')
+//  .pipe($.cache($.imagemin({
+//    progressive: true,
+//    interlaced: true,
+//    // don't remove IDs from SVGs, they are often used
+//    // as hooks for embedding and styling
+//    svgoPlugins: [{cleanupIDs: false}]
+//  })))
+//  .pipe(gulp.dest('dist/images'));
+//});
+
 
 gulp.task('fonts', function () {
   return gulp.src(require('main-bower-files')({
@@ -69,6 +84,8 @@ gulp.task('fonts', function () {
 gulp.task('extras', function () {
   return gulp.src([
     'app/*.*',
+    'app/CNAME',
+    'README.md',
     '!app/*.html'
   ], {
     dot: true
@@ -97,40 +114,54 @@ gulp.task('serve', ['styles', 'fonts'], function () {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.<%= includeSass ? 'scss' : 'css' %>', ['styles']);
+  gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
-});
-
-gulp.task('serve:dist', function () {
-  browserSync({
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: ['dist']
-    }
-  });
 });
 
 // inject bower components
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
-<% if (includeSass) { %>
+
   gulp.src('app/styles/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
     .pipe(gulp.dest('app/styles'));
-<% } %>
+
   gulp.src('app/*.html')
-    .pipe(wiredep({<% if (includeSass && includeBootstrap) { %>
-      exclude: ['bootstrap-sass-official'],<% } %>
+    .pipe(wiredep({
+      exclude: ['bootstrap-sass-official'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
+// https://github.com/bezoerb/gulp-htmlhint
+gulp.task('validate', ['jshint'], function () {
+  gulp.src('./app/*.html')
+    .pipe(htmlhint())
+    .pipe(htmlhint.reporter())
+});
+
+gulp.task('revision', [], function () {
+  return gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jpg', 'dist/**/*.png', 'dist/**/*.svg'])
+    .pipe(rev())
+    .pipe(gulp.dest('dist'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('dist'))
+})
+
+gulp.task('revreplace', ['revision'], function () {
+  var manifest = gulp.src('./dist/rev-manifest.json');
+
+  return gulp.src('dist/*.html')
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
+  gulp.start('revreplace');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

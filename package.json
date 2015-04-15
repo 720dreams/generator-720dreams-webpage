@@ -1,10 +1,10 @@
 {
-  "name": "generator-gulp-webapp",
+  "name": "generator-720dreams-webpage",
   "version": "0.3.0",
   "description": "Scaffold out a front-end web app",
   "license": "BSD",
-  "repository": "yeoman/generator-gulp-webapp",
-  "author": "The Yeoman Team",
+  "repository": "720dreams/generator-720dreams-webpage",
+  "author": "720dreams.com",
   "main": "app/index.js",
   "engines": {
     "node": ">=0.10.0",
