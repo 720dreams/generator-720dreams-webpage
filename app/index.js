@@ -54,11 +54,11 @@ module.exports = yeoman.generators.Base.extend({
       }, {
         name: 'Bootstrap',
         value: 'includeBootstrap',
-        checked: true
+        checked: false
       }, {
         name: 'Modernizr',
         value: 'includeModernizr',
-        checked: true
+        checked: false
       }]
     }];
 
@@ -104,7 +104,7 @@ module.exports = yeoman.generators.Base.extend({
         var bs = 'bootstrap' + (this.includeSass ? '-sass-official' : '');
         bower.dependencies[bs] = '~3.3.1';
       } else {
-        bower.dependencies.jquery = '~2.1.1';
+        //bower.dependencies.jquery = '~2.1.1';
       }
 
       if (this.includeModernizr) {
@@ -117,6 +117,7 @@ module.exports = yeoman.generators.Base.extend({
 
     jshint: function () {
       this.copy('jshintrc', '.jshintrc');
+      this.copy('jshintignore', '.jshintignore');
     },
 
     editorConfig: function () {
@@ -124,21 +125,16 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     h5bp: function () {
-      this.copy('favicon.ico', 'app/favicon.ico');
-      this.copy('apple-touch-icon.png', 'app/apple-touch-icon.png');
+      this.copy('favicon.png', 'app/images/favicon.png');
+      this.copy('apple-touch-icon-precomposed.png', 'app/images/apple-touch-icon-precomposed.png');
       this.copy('robots.txt', 'app/robots.txt');
     },
 
-    mainStylesheet: function () {
-      var css = 'main';
-
-      if (this.includeSass) {
-        css += '.scss';
-      } else {
-        css += '.css';
-      }
-
-      this.copy(css, 'app/styles/' + css);
+    stylesheets: function () {
+      this.copy('_btn.scss', 'app/styles/_btn.scss');
+      this.copy('_variables.scss', 'app/styles/_variables.scss');
+      this.copy('main.scss', 'app/styles/main.scss');
+      this.copy('bootstrap.custom.min.css', 'app/styles/libs/bootstrap.custom.min.css');
     },
 
     writeIndex: function () {
@@ -185,9 +181,13 @@ module.exports = yeoman.generators.Base.extend({
       this.mkdir('app');
       this.mkdir('app/scripts');
       this.mkdir('app/styles');
+      this.mkdir('app/styles/libs');
       this.mkdir('app/images');
       this.mkdir('app/fonts');
+      this.mkdir('bower_components');
+      this.copy('keep', 'bower_components/.keep');
       this.copy('main.js', 'app/scripts/main.js');
+      this.copy('README.md', 'README.md');
     }
   },
 

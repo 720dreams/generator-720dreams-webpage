@@ -4,3 +4,4 @@ test/sass
 test/slug
 temp/
 .idea
+npm-debug.log
