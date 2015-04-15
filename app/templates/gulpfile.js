@@ -160,8 +160,15 @@ gulp.task('revreplace', ['revision'], function () {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('base64Replace', [], function () {
+    return gulp.src('dist/*.html')
+        .pipe(base64Replace())
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
     gulp.start('revreplace');
+    gulp.start('base64Replace');
     return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
