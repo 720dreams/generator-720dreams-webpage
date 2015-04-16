@@ -8,6 +8,7 @@ var reload = browserSync.reload;
 var htmlhint = require('gulp-htmlhint');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
+var base64Replace = require('gulp-base64-href-replace');
 
 gulp.task('styles', function () {
     return gulp.src('app/styles/main.scss')
@@ -47,31 +48,17 @@ gulp.task('html', ['styles'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-//TODO somtines chache does not work. Copies no non-svg ($.cache)
-//gulp.task('images', function () {
-//  return gulp.src('app/images/**/*')
-//    .pipe($.imagemin({
-//      progressive: true,
-//      interlaced: true,
-//      // don't remove IDs from SVGs, they are often used
-//      // as hooks for embedding and styling
-//      svgoPlugins: [{cleanupIDs: false}]
-//    }))
-//    .pipe(gulp.dest('dist/images'));
-//});
-
 gulp.task('images', function () {
     return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
+        .pipe($.imagemin({
             progressive: true,
             interlaced: true,
             // don't remove IDs from SVGs, they are often used
             // as hooks for embedding and styling
             svgoPlugins: [{cleanupIDs: false}]
-        })))
+        }))
         .pipe(gulp.dest('dist/images'));
 });
-
 
 gulp.task('fonts', function () {
     return gulp.src(require('main-bower-files')({
