@@ -4,7 +4,7 @@
 
 ![http://generator.720dreams.com](screenshot.png)
 
-See in action ![http://generator.720dreams.com](generator.720dreams.com)
+See in action [http://generator.720dreams.com](generator.720dreams.com)
 
 ## Features
 
