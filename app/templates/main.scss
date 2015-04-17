@@ -115,11 +115,11 @@ a {
     width: 100%;
     background-color: $primary;
 
-    /*
-    background: url('/images/scene.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-attachment: scroll;
-    */
+    &.hero-img {
+        background: url('http://720dreams.com/images/720dreams-generator-scene.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-attachment: scroll;
+    }
 
     padding-bottom: 0;
     height: 600px;
