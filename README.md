@@ -1,6 +1,7 @@
 # Web app generator
 
-> [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
+[Yeoman](http://yeoman.io) generator that scaffolds out a simple and beautiful front-end web app using [gulp](http://gulpjs.com/) for the build process.
+Prefect for service or product pages.
 
 ![http://generator.720dreams.com](screenshot.png)
 
