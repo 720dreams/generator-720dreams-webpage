@@ -3,8 +3,6 @@
 [Yeoman](http://yeoman.io) generator that scaffolds out a simple and beautiful front-end web app using [gulp](http://gulpjs.com/) for the build process.
 Prefect for service or product pages.
 
-![http://generator.720dreams.com](screenshot.png)
-
 See in action [generator.720dreams.com](http://generator.720dreams.com)
 
 [ ![Codeship Status for 720dreams/generator-720dreams-webpage](https://codeship.com/projects/b9203530-c6a3-0132-76ce-26d28fe02b95/status?branch=master)](https://codeship.com/projects/74735)
