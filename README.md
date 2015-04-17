@@ -4,7 +4,7 @@
 
 ![http://generator.720dreams.com](screenshot.png)
 
-See in action [http://generator.720dreams.com](generator.720dreams.com)
+See in action [generator.720dreams.com](http://generator.720dreams.com)
 
 ## Features
 
@@ -15,8 +15,8 @@ Please see our [gulpfile.js](app/templates/gulpfile.js) for up to date informati
 * Automagically compile Sass with [libsass](http://libsass.org)
 * Automagically lint your scripts
 * Map compiled CSS to source stylesheets with source maps
-* Awesome image optimization
 * Automagically wire-up dependencies installed with [Bower](http://bower.io)
+* Rewrite occurences of filenames which have been renamed by gulp-rev
 
 *For more information on what this generator can do for you, take a look at the [gulp plugins](app/templates/_package.json) used in our `package.json`.*
 

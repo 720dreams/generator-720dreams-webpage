@@ -64,41 +64,58 @@
 <div class="container">
     <div class="row margin-top margin-bottom">
         <div class="col-sm-12">
-            <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                deleniti atque
-                corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-                sunt in
-                culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-            </p>
 
-            <p>
-                Et harum quidem rerum facilis est et
-                expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
-                minus id
-                quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-            </p>
+            <a href="https://github.com/720dreams/generator-720dreams-webpage"><img
+                style="position: absolute; top: 0; left: 0; border: 0;"
+                src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67"
+                alt="Fork me on GitHub"
+                data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
 
-            <p>Temporibus autem
-                quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae
-                sint et
-                molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-                voluptatibus
-                maiores alias consequatur aut perferendis doloribus asperiores repellat.
-            </p>
+            <h1 id="web-app-generator">Web app generator</h1>
+            <blockquote>
+                <p><a href="http://yeoman.io">Yeoman</a> generator that scaffolds out a front-end web app using <a
+                    href="http://gulpjs.com/">gulp</a> for the build process</p>
+            </blockquote>
+            <h2 id="features">Features</h2>
 
-            <p>Officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-                molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis
-                voluptatibus
-                maiores alias consequatur aut perferendis doloribus asperiores repellat.
-            </p>
+            <p>Please see our <a
+                href="https://github.com/720dreams/generator-720dreams-webpage/blob/master/app/templates/gulpfile.js">gulpfile.js</a>
+                for up to date information on what we
+                support.</p>
+            <ul>
+                <li>CSS Autoprefixing</li>
+                <li>Built-in preview server with BrowserSync</li>
+                <li>Automagically compile Sass with <a href="http://libsass.org">libsass</a></li>
+                <li>Automagically lint your scripts</li>
+                <li>Map compiled CSS to source stylesheets with source maps</li>
+                <li>Automagically wire-up dependencies installed with <a href="http://bower.io">Bower</a></li>
+                <li>Rewrite occurences of filenames which have been renamed by gulp-rev</li>
+                <li>Simple design included (custom bootstrap)</li>
+            </ul>
+            <p><em>For more information on what this generator can do for you, take a look at the <a
+                href="https://github.com/720dreams/generator-720dreams-webpage/blob/master/app/templates/_package.json">gulp
+                plugins</a> used in our <code>package.json</code>.</em></p>
 
-            <p>
-                Odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque
-                corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique
-                sunt in
-                culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-            </p>
+            <h2 id="libsass">libsass</h2>
+
+            <p>Keep in mind that libsass is feature-wise not fully compatible with Ruby Sass. Check out <a
+                href="http://sass-compatibility.github.io">this</a> curated list of incompatibilities to find out which
+                features are missing.</p>
+
+            <p>If your favorite feature is missing and you really need Ruby Sass, you can always switch to <a
+                href="https://github.com/sindresorhus/gulp-ruby-sass">gulp-ruby-sass</a> and update the
+                <code>styles</code> task in <code>gulpfile.js</code> accordingly.</p>
+
+            <h2 id="getting-started">Getting Started</h2>
+            <ul>
+                <li>Install dependencies: <code>npm install --global yo bower</code></li>
+                <li>Install the generator: <code>npm install --global
+                    git+https://github.com/720dreams/generator-720dreams-webpage.git</code></li>
+                <li>Run <code>yo 720dreams-webpage</code> to scaffold your webapp</li>
+                <li>Run <code>gulp serve</code> to preview and watch for changes</li>
+                <li>Run <code>bower install --save &lt;package&gt;</code> to install frontend dependencies</li>
+                <li>Run <code>gulp</code> to build your webapp for production</li>
+            </ul>
 
         </div>
     </div>
@@ -125,11 +142,11 @@
                 <div class="footer-links text-center margin-top light">
                     <a href="mailto:contact@720dreams.com">Contact us</a> &bull;
                     <a role="encoded"
-                       href="http://720dreams.com/views.html?name=<%= appname %>&title=Feedback&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">About</a> &bull;
+                       href="http://720dreams.com/views.html?name=<%= appname %>&title=Feedback&urlWeb=http://generator.720dreams.com/&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">Feedback</a> &bull;
                     <a role="encoded"
-                       href="http://720dreams.com/views.html?name=<%= appname %>&title=About&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">About</a> &bull;
+                       href="http://720dreams.com/views.html?name=<%= appname %>&title=About&urlWeb=http://generator.720dreams.com/&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">About</a> &bull;
                     <a role="encoded"
-                       href="http://720dreams.com/views.html?name=<%= appname %>&title=Privacy Policy&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">Privacy
+                       href="http://720dreams.com/views.html?name=<%= appname %>&title=Privacy Policy&urlWeb=http://generator.720dreams.com/&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">Privacy
                         Policy</a> &bull;
                     <a role="encoded"
                        href="http://720dreams.com/views.html?title=Terms of Service&logo=http://720dreams.com/images/logo-white-text-d234abc2.png&accentColor=1A237E">Terms
