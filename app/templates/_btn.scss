@@ -24,8 +24,8 @@
     border-color: $primary;
 
     &:hover, &:focus, &:active {
-        color: $primary-2nd;
+        color: rgba(0, 0, 0, 0.4);
         background-color: transparent;
-        border-color: $primary-2nd;
+        border-color: $primary;
     }
 }
