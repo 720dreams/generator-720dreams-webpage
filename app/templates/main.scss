@@ -37,6 +37,13 @@ a {
     font-size: 0.75em;
 }
 
+.alert.alert-warning {
+    padding: 10px;
+    margin: 10px;
+    border: solid #EF6C00;
+    color: #FF9800;
+}
+
 ///////////////////////////////////////////
 //
 // Layout
@@ -59,11 +66,8 @@ a {
     clear: both;
 }
 
-.alert.alert-warning {
-    padding: 10px;
-    margin: 10px;
-    border: solid #EF6C00;
-    color: #FF9800;
+.container-fluid {
+    max-width: 1200px;
 }
 
 ///////////////////////////////////////////
